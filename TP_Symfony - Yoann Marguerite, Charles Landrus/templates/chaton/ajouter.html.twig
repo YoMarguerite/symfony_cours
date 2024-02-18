@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ Titre }}{% endblock %}
+
+{% block body %}
+<h1> {{ Titre }}</h1>
+{{ form_start(form) }}
+{{ form_row(form.chaton) }}
+{{ form_end(form) }}
+{% endblock %}

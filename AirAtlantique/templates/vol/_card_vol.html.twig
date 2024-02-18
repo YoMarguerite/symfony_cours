@@ -1,0 +1,45 @@
+<tr>
+    <td>
+        <p>Départ : {{ vol.Depart|date('Y-m-d H:i:s') }}</p>
+        <p>Arrivée : {{ vol.Arrivee|date('Y-m-d H:i:s') }}</p>
+    </td>
+    <td>
+        <p>Avion : {{ vol.Avion.Modele }}</p>
+        <p>Places Restantes : {{ vol.getPlacesRestantes() }}</p>
+    </td>
+    <td>
+        <p>Durée : {{ vol.Trajet.Duree|date('H:i:s') }}</p> 
+        <p>Distance : {{ vol.Trajet.Distance }} KM</p>
+    </td>
+{% if app.user %}
+                
+    {% for classe in classes %}
+        {% set condition = true %}
+        {% for tarifvol in vol.tarifVols if condition %}
+            {% if tarifvol.Tarif.Classe.id == classe.id %}
+                <td>
+                    <table>
+                        {% for tarifvol in vol.tarifVols %}
+                            {% if tarifvol.Tarif.Classe.id == classe.id %}
+                                <tr>
+                                    <td>
+                                        <div class="row">
+                                            <div class="input-field col s12 center">
+                                                <button class="btn waves-effect waves-light red lighten-1" type="submit" name="choix" value="{{tarifvol.id}}">
+                                                {{ tarifvol.Tarif.Tarif }} : {{ tarifvol.Prix }} €</button>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            {% endif %}
+                        {% endfor %}
+                    </table>             
+                </td>
+                {% set compteur = compteur + 1 %}
+                {% set condition = false %}
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+    
+{% endif %}
+</tr>

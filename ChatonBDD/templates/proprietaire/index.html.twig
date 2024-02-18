@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Super Chaton{% endblock %}
+
+{% block body %}
+
+    <h1>{{Titre}}</h1>
+    <a href="{{  path("proprietaire_ajouter")  }}"
+    class="waves-effect waves-light btn">Ajouter un Propriétaire</a>
+
+    <div class="row">
+
+        {% for proprietaire in proprietaires %}
+
+            {% include "proprietaire/_vignette.html.twig" %}
+
+
+        {% endfor %}
+    </div>
+
+{% endblock %}

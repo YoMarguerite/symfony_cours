@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ Titre }}{% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col s12 m6">
+      <div class="card teal darken-3">
+        <div class="card-content white-text">
+          <span class="card-title">{{ Titre }}</span>
+          <p> Voulez vous supprimer la catégorie {{categorie.nom}} ?</p>
+        </div>
+        <div class="card-action">
+            <a href="{{  path("categorie_supprimer",{"id":categorie.id} )  }}" 
+                class="waves-effect waves-light btn">Oui</a>
+            <a href="{{path("home")}}"
+                class="waves-effect waves-light btn">Non</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+{% endblock %}

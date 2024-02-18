@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+
+    <div class="row">
+        <div class="col s12">
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-title center">Voulez-vous supprimer ce billet ?</span>
+                    <p>{{billet.Vol.Vol.Trajet.Depart.Nom}} - {{billet.Vol.Vol.Trajet.Arrivee.Nom}}</p>
+                    <p>Départ à {{ billet.Vol.Vol.Depart|date('Y-m-d H:i:s') }}</p>
+                    <p>Arrivée à {{ billet.Vol.Vol.Arrivee|date('Y-m-d H:i:s') }}</p>
+                    <p>{{billet.Vol.Tarif.Classe.Classe}} {{billet.Vol.Tarif.Tarif}} : {{billet.Vol.Prix}}€</p>
+                    <p> billet acheté le {{ billet.Date|date('Y-m-d H:i:s') }}</p>
+                </div>
+                <div class="card-action">
+
+                    <form action="{{path("delete")}}" method="post">
+                        <input type="hidden" name="id" value="{{billet.Id}}"/>
+                        <button type="submit" class="btn waves-effect waves-light red lighten-1">OUI</button>
+                        <a class="btn waves-effect waves-light red lighten-1" href="{{path("our-flight")}}">NON</a>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

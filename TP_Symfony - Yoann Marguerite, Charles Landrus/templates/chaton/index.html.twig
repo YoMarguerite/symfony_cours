@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Super Chaton{% endblock %}
+
+{% block body %}
+
+    <h1>Bienvenue sur Super ChatonBDD !</h1>
+    <a href="{{  path("chaton_ajouter",{"id_categorie":categorie.id} )  }}"
+    class="waves-effect waves-light btn">Ajouter un Chaton</a>
+    <div class="row">
+    
+        {% for chaton in chatons %}
+
+            {% include "chaton/_vignette.html.twig" %}
+
+
+        {% endfor %}
+    </div>
+
+
+{% endblock %}

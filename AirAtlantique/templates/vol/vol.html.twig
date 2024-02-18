@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="center">
+    {% if trajet is empty %}
+        <h3>Pas de trajet correspondant</h3>
+    {% else %}
+        {% if vols is empty %}
+            <h3>Pas de vols prévues pour cette date</h3>
+        {% else %}
+            <h4>Correspondances {{ depart.getNom() }} - {{ arrivee.getNom() }}</h4>
+            {% if app.user is empty %}
+                <form action="{{path("login")}}" method="post">
+            {% else %}
+                <form action="{{path("reservation")}}" method="post">
+            {% endif %}
+                <table>
+                    <tr>
+                        <th>
+                            Horaire
+                        </th>
+                        <th>
+                            Avion
+                        </th>
+                        <th>
+                            Détails
+                        </th>
+
+                        {% for classe in classes %}
+                            <th>
+                                {{ classe.Classe }}
+                            </th>
+                        {% endfor %}
+                    </tr>
+                    {% set compteur = 0 %}
+                    {% for vol in vols %}
+                        
+                        {% include '/vol/_card_vol.html.twig' %}
+
+                    {% endfor %}
+                </table>
+                {% if app.user is empty %}
+                    <div class="row">
+                        <div class="input-field col s12 center">
+                            <button class="btn waves-effect waves-light red lighten-1" type="submit" name="action">Connectez-vous
+                            </button>
+                        </div>
+                    </div>
+                {% endif %}
+            </form>
+        {% endif %}
+    {% endif %}
+        
+    </div>
+{% endblock %}

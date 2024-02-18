@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Super Chaton{% endblock %}
+
+{% block body %}
+
+    <h1>Les propriétaires de {{chaton.nom}})</h1>
+
+    <div class="row">
+        {% for proprietaire in chaton.getProprietaire %}
+
+            {% include "chaton/_proprietaire.html.twig" %}
+
+
+        {% endfor %}
+    </div>
+
+
+{% endblock %}

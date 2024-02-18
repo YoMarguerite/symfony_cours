@@ -1,0 +1,14 @@
+<div class="col s12 m7">
+    <div class="card">
+        <div class="card-image">
+        <img src="/photo/{{chaton.photo}}">
+        <span class="card-title">{{chaton.nom}}</span>
+        </div>
+        <div class="card-content">
+        <p>{{chaton.description}}</p>
+        </div>
+        <div class="card-action">
+        <a href="{{  path("chaton_modifier",{"id_chaton":chaton.id} )  }}">Catégorie : {{chaton.categorie.nom}}</a>
+        </div>
+    </div>
+</div>

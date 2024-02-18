@@ -1,0 +1,14 @@
+
+    <div class="col s12 m6">
+      <div class="card teal darken-3">
+        <div class="card-content white-text">
+          <span class="card-title">{{proprietaire.getNomEntier}}</span>
+          <p>Possède {{proprietaire.getnbChatons}} chatons</p>
+        </div>
+        <div class="card-action">
+        <a href="{{  path("proprietaire_modifier",{"id":proprietaire.id} )  }}"><i class="material-icons">create</i></a>
+        <a href="{{  path("proprietaire_chatons",{"id":proprietaire.id} )  }}"><i class="material-icons">remove_red_eye</i></a>
+        <a href="{{  path("proprietaire_verif",{"id":proprietaire.id} )  }}"><i class="material-icons">close</i></a>
+        </div>
+      </div>
+    </div>

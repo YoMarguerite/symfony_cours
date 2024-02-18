@@ -1,0 +1,6 @@
+{% for dossier in dossiers %}
+<li>
+    <a href="{{ path ("dossier", {"nomDuDossier":dossier.filename|url_encode}) }}">
+        {{ dossier.filename}}</a>
+</li>
+{% endfor %}

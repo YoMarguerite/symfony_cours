@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Page de profil</h1>
+    <p>Points de fidélités : {{fidelite}}</p>
+
+    {{ form_start(form) }}
+    {{ form_row(form.UserName, {'label': 'Nom','attr':{'placeholder':'Saisissez votre nom ...'}})}}
+    {{ form_row(form.FirstName, {'label': 'Prénom','attr':{'placeholder':'Saisissez votre prénom ...'}})}}
+
+    {{ form_end(form) }}
+
+{% endblock %}
